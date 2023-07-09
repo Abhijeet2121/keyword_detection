@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KeyWord Detection</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/index.css')}}">
+</head>
+<body>
+    <div class="container">
+        <h1>Keyword Detection</h1>
+        <form method="post", action="/">
+            <input type="text-area" name="input_body" placeholder="Enter A Text">
+            <input type="submit" value="Submit">
+        </form>
+        
+        {% if status_code and result %}
+ 
+        <h2> Keywords:</h2>
+        {% for item in result['result']%}
+        <pre> {{item['text']}}</pre>
+        {% endfor %}
+        {% endif %}
+    </div>
+</body>
+</html>
